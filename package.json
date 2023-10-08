@@ -36,7 +36,19 @@
     "dist": "rm -rf dist && babel src -d dist --copy-files",
     "build-demo": "rm -rf examples/dist && webpack --mode production --config webpack-demo.config.js",
     "deploy": "gh-pages -d examples/dist",
-    "publish-demo": "npm run build-demo && npm run deploy"
+    "publish-demo": "npm run build-demo && npm run deploy",
+    "release": "yarn dist && yarn release-it"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore(release): v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    }
   },
   "dependencies": {
     "cloudimage-responsive-utils": "^2.4.9",
@@ -68,9 +80,10 @@
     "html-webpack-plugin": "^5.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "throttle-debounce": "^2.0.1",
     "react-syntax-highlighter": "^15.5.0",
+    "release-it": "^16.2.1",
     "style-loader": "^3.3.2",
+    "throttle-debounce": "^2.0.1",
     "webpack": "^5.79.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.3"
