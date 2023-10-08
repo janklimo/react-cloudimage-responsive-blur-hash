@@ -54,7 +54,6 @@
   },
   "dependencies": {
     "cloudimage-responsive-utils": "^2.4.9",
-    "core-js": "^3.0.0",
     "react-lazyload": "^2.6.7",
     "throttle-debounce": "^2.0.1"
   },
