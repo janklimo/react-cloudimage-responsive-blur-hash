@@ -11,6 +11,7 @@ export const getFilteredProps = props => {
     ratio,
     params,
     lazyLoading,
+    maxWidth,
     ...otherProps
   } = props;
 

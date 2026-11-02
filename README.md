@@ -433,6 +433,14 @@ detect the width of image container and set the image size accordingly. This is 
 It is recommended to prevent page layout jumping. The parameter is used to calculate image height to hold
 the image position while image is loading.
 
+### maxWidth
+
+###### Type: **Number** | _optional_
+
+The width of the original image in pixels. Requested widths never exceed it, and the height is scaled
+to match. This avoids oversized requests that Cloudimage rejects (for example a narrow, tall image in a
+wide container) and duplicate cached variants of the same original.
+
 ### lazyLoading
 
 ###### Type: **Bool** | _optional_

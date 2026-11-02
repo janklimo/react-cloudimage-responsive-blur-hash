@@ -5,6 +5,7 @@ import { getFilteredProps } from './utils.js';
 import {blurHashImgStyes as styles} from "cloudimage-responsive-utils";
 import LazyLoad from 'react-lazy-load';
 import Canvas from './canvas';
+import { constrainURLs } from './constrain';
 
 
 class Img extends Component {
@@ -41,9 +42,14 @@ class Img extends Component {
 
   processImg = (update, windowScreenBecomesBigger) => {
     const imgNode = findDOMNode(this);
+    const { config, maxWidth } = this.props;
     const data = processReactNode(this.props, imgNode, update, windowScreenBecomesBigger, false);
 
-    this.setState(data);
+    this.setState(constrainURLs(data, {
+      config,
+      maxWidth,
+      devicePixelRatio: window.devicePixelRatio,
+    }));
   }
 
   updateLoadedImageSize = image => {
